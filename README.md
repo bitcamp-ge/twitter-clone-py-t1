@@ -1,5 +1,7 @@
 # Twitter Clone
 
+**[English][en]** - [ქართული][ge]
+
 Twitter clone project.
 
 # Running the code
@@ -30,3 +32,6 @@ Twitter clone project.
 - - Enable script execution - `Set-ExecutionPolicy RemoteSigned`
 - - Run activation script - `.\venv\Scripts\Activate.ps1`
 - cmd.exe - `.\venv\Scripts\activate.bat`
+
+[en]: https://github.com/bitcamp-ge/twitter-clone-py-t1#readme
+[ge]: README.ge.md
