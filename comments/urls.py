@@ -7,8 +7,8 @@ app_name = 'comments'
 
 urlpatterns = [
     # List and create comments
-    path('comments/', CommentListCreateView.as_view(), name='comment-list-create'),
+    path('', CommentListCreateView.as_view(), name='comment-list-create'),
 
     # Retrieve, update, and delete comments
-    path('comments/<int:pk>/', CommentRetrieveUpdateDeleteView.as_view(), name='comment-retrieve-update-delete'),
+    path('<int:pk>/', CommentRetrieveUpdateDeleteView.as_view(), name='comment-retrieve-update-delete'),
 ]
