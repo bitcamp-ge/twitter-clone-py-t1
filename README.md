@@ -26,5 +26,7 @@ Twitter clone project.
 - csh/tcsh - `source ./venv/bin/activate.csh`
 
 ### For Windows users
-- PowerShell - `.\venv\Scripts\Activate.ps1`
+- PowerShell
+- - Enable script execution - `Set-ExecutionPolicy RemoteSigned`
+- - Run activation script - `.\venv\Scripts\Activate.ps1`
 - cmd.exe - `.\venv\Scripts\activate.bat`
