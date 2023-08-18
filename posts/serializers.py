@@ -1,10 +1,12 @@
 from rest_framework import serializers
 from .models import Post
 from hashtags.serializers import HashtagSerializer
+from twitter.serializers import UserSerializer
 
 
 class PostSerializer(serializers.ModelSerializer):
-    # hashtags = HashtagSerializer(many=True, read_only=True)
+    user = UserSerializer()
+    hashtags = HashtagSerializer(many=True, read_only=True)
 
     class Meta:
         model = Post
