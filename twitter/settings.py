@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'hashtags',
+    'posts',
     
     'django.contrib.admin',
     'django.contrib.auth',
