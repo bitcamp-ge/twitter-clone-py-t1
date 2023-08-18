@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 
 # Create your views here.
 
@@ -10,6 +11,7 @@ from .serializers import CommentSerializer
 class CommentListCreateView(generics.ListCreateAPIView):
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
 
     def get_queryset(self):
         content_type = self.request.query_params.get('content_type')
@@ -24,3 +26,5 @@ class CommentRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticated]
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
+
