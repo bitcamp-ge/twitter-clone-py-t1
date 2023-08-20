@@ -11,4 +11,5 @@ urlpatterns = [
     path('', include('hashtags.urls')),
     path('', include('posts.urls')),  
     path("comments/", include("comments.urls",)),
+    path("filters/", include('filters.urls')),
 ]
