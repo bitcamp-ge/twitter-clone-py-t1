@@ -21,6 +21,8 @@ class CommentListCreateView(generics.ListCreateAPIView):
         else:
             queryset = Comment.objects.all()
         return queryset
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 class CommentRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()

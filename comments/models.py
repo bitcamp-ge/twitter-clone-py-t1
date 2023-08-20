@@ -1,7 +1,9 @@
-from django.db import models
 
-# Create your models here.
+
+from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey, ContentType
+# Create your models here.
+
 from django.contrib.auth.models import User
 
 class Comment(models.Model):
