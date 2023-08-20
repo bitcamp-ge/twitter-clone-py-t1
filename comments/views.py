@@ -2,7 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
-
+from django.shortcuts import get_object_or_404
+from posts.models import Post
 # Create your views here.
 
 from rest_framework import generics
@@ -32,3 +33,17 @@ class CommentRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
     authentication_classes = [SessionAuthentication, TokenAuthentication]
 
+class CommentCreateView(generics.CreateAPIView):
+    serializer_class = CommentSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [SessionAuthentication, TokenAuthentication]
+
+    def perform_create(self, serializer):
+        # Get the post_id from the URL kwargs
+        post_id = self.kwargs.get('post_id')
+        
+        # Retrieve the associated post based on the post_id
+        associated_post = get_object_or_404(Post, id=post_id)
+
+        # Set the post reference when creating the comment
+        serializer.save(author=self.request.user, content_object=associated_post)
