@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .filters import PostFilter, HashtagFilter
 from posts.models import Post
 from hashtags.models import Hashtag
+from accounts.models import User
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
