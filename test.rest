@@ -1,0 +1,16 @@
+POST http://localhost:8000/posts/ 
+Content-Type: application/json
+Authorization: Token 2e9c6c27d5af6547e9b1fa4aa9482dcf77fa3d4d
+
+{
+  "title": "Heloo",
+  "content": "HEllo dfajkldsfj"
+}
+###
+POST http://localhost:8000/login/
+Content-Type: application/json
+
+{
+  "username": "root",
+  "password": "root"
+}
