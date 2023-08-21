@@ -7,5 +7,9 @@ class PostFilter(filters.FilterSet):
 class UserFilter(filters.FilterSet):
     username = filters.CharFilter(lookup_expr='icontains')
 
+class Meta:
+     model = User
+     fields = ['username']
+      
 class HashtagFilter(filters.FilterSet):
     tag = filters.CharFilter(lookup_expr='icontains')
