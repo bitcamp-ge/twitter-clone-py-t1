@@ -4,4 +4,4 @@ from .models import PrivateMessage
 class PrivateMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = PrivateMessage
-        fields = ('sender', 'recipient', 'timestamp', 'content')
+        fields = ['sender', 'recipient', 'timestamp', 'content']
