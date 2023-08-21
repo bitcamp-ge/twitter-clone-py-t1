@@ -8,5 +8,6 @@ urlpatterns = [
     path("login/", views.login),
     path("test/", views.test),
     path('', include('hashtags.urls')),
-    path('', include('posts.urls')),  
+    path('', include('posts.urls')), 
+    path('likes', include('likes.urls')), 
 ]

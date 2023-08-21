@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'hashtags',
     'posts',
-    
+    'likes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
