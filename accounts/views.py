@@ -1,6 +1,7 @@
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
-from rest_framework import status
+from rest_framework import status, permissions
 from rest_framework.views import APIView
 
 from .serializers import UserSerializer
@@ -10,7 +11,7 @@ from django.shortcuts import get_object_or_404
 
 class SignupView(APIView):
     def post(self, request):
-        serializer = UserSerializer(data=request.data)
+        serializer = UserSerializer(data=request.data, partial=True)
 
         if serializer.is_valid():
             serializer.save()
@@ -54,3 +55,19 @@ class ProfileView(APIView):
         user_data.pop("password")
         
         return Response(user_data)
+
+class SetBioView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
+    def put(self, request):
+        user = request.user
+        serializer = UserSerializer(user, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response({
+                "user": serializer.data
+            })
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
