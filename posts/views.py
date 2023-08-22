@@ -1,31 +1,58 @@
-from rest_framework import generics, permissions
-from rest_framework.authentication import TokenAuthentication
+# from rest_framework import generics, permissions
+# from rest_framework.authentication import TokenAuthentication
+# from .models import Post
+# from .serializers import PostSerializer
+# from .permissions import IsOwnerOrReadOnly
+# from hashtags.models import Hashtag
+
+# class PostListCreateView(generics.ListCreateAPIView):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+#     authentication_classes = [TokenAuthentication]
+#     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+#     def perform_create(self, serializer):
+#         serializer.save(user=self.request.user)
+
+#     def perform_create(self, serializer):
+#         hashtags_data = self.request.data.get('hashtags') 
+#         post = serializer.save(user=self.request.user)
+
+#         if hashtags_data:
+#             for hashtag_name in hashtags_data:
+#                 hashtag = Hashtag.objects.get_or_create(name=hashtag_name)
+#                 post.hashtags.add(hashtag[0])  
+                
+
+# class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+#     authentication_classes = [TokenAuthentication]
+#     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework import status
 from .models import Post
 from .serializers import PostSerializer
-from .permissions import IsOwnerOrReadOnly
 from hashtags.models import Hashtag
 
-class PostListCreateView(generics.ListCreateAPIView):
+
+class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-
-    def perform_create(self, serializer):
-        hashtags_data = self.request.data.get('hashtags')  # Get the hashtag IDs from the request
+        
+        hashtags_data = self.request.data.get('hashtags') 
         post = serializer.save(user=self.request.user)
 
         if hashtags_data:
-            for hashtag_id in hashtags_data:
-                hashtag = Hashtag.objects.get(pk=hashtag_id)
-                post.hashtags.add(hashtag)  # Associate the hashtags with the post
+             for hashtag_name in hashtags_data:
+                hashtag = Hashtag.objects.get_or_create(name=hashtag_name)
+                post.hashtags.add(hashtag[0]) 
+  
 
 
-class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+
+    
