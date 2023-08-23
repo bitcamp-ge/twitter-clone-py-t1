@@ -9,7 +9,7 @@ from posts.serializers import PostSerializer
 from hashtags.serializers import HashtagSerializer
 from posts.models import Post
 from hashtags.models import Hashtag
-from django.contrib.auth.models import User
+from accounts.models import User
 # Create your views here.
 
 class PostSearchView(generics.ListAPIView):
