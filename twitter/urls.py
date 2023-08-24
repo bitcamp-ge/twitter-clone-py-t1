@@ -1,15 +1,10 @@
-from django.contrib import admin
-from django.urls import path,include
-from . import views
-from rest_framework.authtoken.views import ObtainAuthToken
+from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("signup/", views.signup),
-    path("login/", views.login),
-    path("test/", views.test),
+    path("", include("accounts.urls")),
     path('', include('hashtags.urls')),
     path('', include('posts.urls')),  
     path("comments/", include("comments.urls",)),
-    path("filters/", include('filters.urls')),
+    path("filters/", include('filters.urls'))
 ]
