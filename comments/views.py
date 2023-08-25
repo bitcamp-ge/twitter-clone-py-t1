@@ -1,15 +1,11 @@
-from django.shortcuts import render
-
-# Create your views here.
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from django.shortcuts import get_object_or_404
 from posts.models import Post
-# Create your views here.
-
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from .models import Comment
 from .serializers import CommentSerializer
+
 
 class CommentListCreateView(generics.ListCreateAPIView):
     serializer_class = CommentSerializer

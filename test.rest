@@ -1,12 +1,18 @@
-POST http://localhost:8000/posts/ 
+
+### ახალი იუზერის რეგისტრაციისთვის შეავსეთ შესაბამისის ველები
+POST http://localhost:8000/signup/
 Content-Type: application/json
-Authorization: Token 2e9c6c27d5af6547e9b1fa4aa9482dcf77fa3d4d
 
 {
-  "title": "Heloo",
-  "content": "HEllo dfajkldsfj"
+  "username": "",
+  "password": ""
 }
-###
+
+
+### დავლოგინდეთ ჩვენი მონაცემების მიხედვით
+### დაბრუნებული ტოკენის გამოყენებით ვახორციელებთ დანარჩენ ოპერაციებს
+### ან შევიდეთ სუპერ იუზერის root-ის მონაცემებით, და გამოვიყენოთ მისი ტოკენი
+### სუპერიუზერის მონაცემებია: "username": "root", "password": "root"
 POST http://localhost:8000/login/
 Content-Type: application/json
 
@@ -14,3 +20,80 @@ Content-Type: application/json
   "username": "root",
   "password": "root"
 }
+
+
+### ინფორმაცია მოგვაქვს კონკრეტული იუზერის შესახებ
+GET http://localhost:8000/profile/root
+
+
+
+### ბიოს ჩაწერა,  ჩაწერეთ დალოგინებული იუზერის token
+PUT http://localhost:8000/profile/set/bio
+Content-Type: application/json
+Authorization: Token ea0b2ff194459cf3774a06fcd0e0f55b95427530
+
+{
+    "bio": "I'm Zoya and I'm learning programming"
+}
+
+
+### მოგვაქვს პოსტების ლისტი
+GET http://localhost:8000/posts/
+
+
+
+### პოსტის შექმნისას გამოვიყენოთ დალოგინებული იუზერის ტოკენი
+### წერს როგორც არსებულ ჰეშტეგების სიაში, ასევე ქმნის ახალ ჰეშტეგსაც
+### შეჰტეგის გარეშეც მუშაობს
+POST http://localhost:8000/posts/ 
+Content-Type: application/json
+Authorization: Token 33f43b44b2b68282354bbc07528c5ddda58d726d
+
+{
+  "content": "Hello World ",
+  "hashtags": ["programers", "Java"]
+}
+
+
+
+### ვქმნით ჰეშტეგს
+POST http://localhost:8000/hashtags/
+Content-Type: application/json
+
+{
+  "hashtags": ["Python"]
+}
+
+
+### ვაბრუნებთ ჰეშტეგების ლისტს
+GET  http://localhost:8000/hashtags/
+
+
+
+### ვწერთ კომენტარს. ჩაწერეთ დალოგინებული იუზერის ტოკენი
+### სამწუხაროთ კომენტარს ვის ან რომელ პოსტს ვუწერთ არ ჩანს, აქ many კავშირია ასაწყობი კოდში
+POST http://localhost:8000/comments/
+Content-Type: application/json
+Authorization: Token 33f43b44b2b68282354bbc07528c5ddda58d726d
+
+{
+ 
+  "content": "hi",
+  "author": "1",
+  "object_id": ["2"]
+}
+
+###
+GET http://localhost:8000/filters/users/search/
+
+
+###
+GET http://localhost:8000/filters/posts/search/
+
+
+###
+GET http://localhost:8000/filters/hashtags/search/
+
+
+
+

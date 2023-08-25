@@ -1,4 +1,6 @@
 from django_filters import rest_framework as filters
+from accounts.models import User
+
 
 class PostFilter(filters.FilterSet):
     hashtags = filters.CharFilter(field_name='hashtags__tag', lookup_expr='icontains')
