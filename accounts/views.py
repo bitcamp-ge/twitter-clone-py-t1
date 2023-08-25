@@ -3,11 +3,10 @@ from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework import status, permissions
 from rest_framework.views import APIView
-
 from .serializers import UserSerializer
 from .models import User
-
 from django.shortcuts import get_object_or_404
+
 
 class SignupView(APIView):
     def post(self, request):
