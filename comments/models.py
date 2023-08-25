@@ -1,15 +1,6 @@
-
-
 from django.db import models
-
 from posts.models import Post
-
-
-from django.db import models
-
-# Create your models here.
-
-from django.contrib.auth.models import User
+from accounts.models import User
 
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
