@@ -17,8 +17,8 @@ POST http://localhost:8000/login/
 Content-Type: application/json
 
 {
-  "username": "",
-  "password": ""
+  "username": "root",
+  "password": "root"
 }
 
 
@@ -47,11 +47,11 @@ GET http://localhost:8000/posts/
 ### შეჰტეგის გარეშეც მუშაობს
 POST http://localhost:8000/posts/ 
 Content-Type: application/json
-Authorization: Token ea0b2ff194459cf3774a06fcd0e0f55b95427530
+Authorization: Token 33f43b44b2b68282354bbc07528c5ddda58d726d
 
 {
-  "content": "Hello programers, I am zoia",
-  "hashtags": ["programers", "Python"]
+  "content": "Hello World ",
+  "hashtags": ["programers", "Java"]
 }
 
 
@@ -74,13 +74,13 @@ GET  http://localhost:8000/hashtags/
 ### სამწუხაროთ კომენტარს ვის ან რომელ პოსტს ვუწერთ არ ჩანს, აქ many კავშირია ასაწყობი კოდში
 POST http://localhost:8000/comments/
 Content-Type: application/json
-Authorization: Token 
+Authorization: Token 33f43b44b2b68282354bbc07528c5ddda58d726d
 
 {
  
-  "content": "me too",
-  "author": "1"
-
+  "content": "hi",
+  "author": "1",
+  "object_id": ["2"]
 }
 
 ###
