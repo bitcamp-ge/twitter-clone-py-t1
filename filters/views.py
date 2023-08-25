@@ -1,16 +1,14 @@
-from django.shortcuts import render
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from .filters import PostFilter, UserFilter, HashtagFilter
 from .serializers import PostSerializer, UserSerializer, HashtagSerializer
-from .models import Post, User, Hashtag
 from posts.serializers import PostSerializer
 from hashtags.serializers import HashtagSerializer
 from posts.models import Post
 from hashtags.models import Hashtag
 from accounts.models import User
-# Create your views here.
+
 
 class PostSearchView(generics.ListAPIView):
     serializer_class = PostSerializer
