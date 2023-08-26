@@ -1,13 +1,12 @@
+from django.urls import path, include
 from django.contrib import admin
-from django.urls import path,include
-from . import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("signup/", views.signup),
-    path("login/", views.login),
-    path("test/", views.test),
+    path('', include("accounts.urls")),
     path('', include('hashtags.urls')),
-    path('', include('posts.urls')), 
     path('likes/', include('likes.urls')), 
+    path('', include('posts.urls')),  
+    path('', include("comments.urls")),
+    path("filters/", include('filters.urls'))
 ]
