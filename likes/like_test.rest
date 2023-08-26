@@ -1,0 +1,12 @@
+# GET http://127.0.0.1:8000/likes/?like_value=True&postId=4
+# Accept: application/json
+
+POST http://127.0.0.1:8000/likes/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "postId": 10,
+  "like_from_User": 6,
+  "like_value": false
+}
