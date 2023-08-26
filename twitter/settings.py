@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'hashtags',
     'posts',
     'likes',
+    'django_filters',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
