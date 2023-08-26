@@ -9,5 +9,5 @@ urlpatterns = [
     path("test/", views.test),
     path('', include('hashtags.urls')),
     path('', include('posts.urls')), 
-    path('likes', include('likes.urls')), 
+    path('likes/', include('likes.urls')), 
 ]
