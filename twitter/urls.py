@@ -8,5 +8,7 @@ urlpatterns = [
     path('likes/', include('likes.urls')), 
     path('', include('posts.urls')),  
     path('', include("comments.urls")),
-    path("filters/", include('filters.urls'))
+    path("filters/", include('filters.urls')),
+    path("group/", include('group.urls'))
+
 ]

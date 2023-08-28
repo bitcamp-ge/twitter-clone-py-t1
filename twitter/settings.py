@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    
+    'group',
     'accounts',
     'hashtags',
     'posts',
@@ -143,3 +143,10 @@ REST_FRAMEWORK = {
     ],
     
 }
+
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000/']
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SAMESITE = 'Lax'  # or 'Strict'
+CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'  # Default: 'HTTP_X_CSRFTOKEN'
