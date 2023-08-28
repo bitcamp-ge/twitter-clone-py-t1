@@ -5,4 +5,4 @@ from .models import Hashtag
 class HashtagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hashtag
-        fields = '__all__'
+        fields = ['name']
