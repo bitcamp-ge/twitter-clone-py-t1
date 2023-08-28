@@ -8,4 +8,4 @@ class Post(models.Model):
     hashtags = models.ManyToManyField(Hashtag, related_name='posts', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        return self.title
+        return self.content
