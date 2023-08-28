@@ -47,7 +47,7 @@ GET http://localhost:8000/posts/
 ### შეჰტეგის გარეშეც მუშაობს
 POST http://localhost:8000/posts/ 
 Content-Type: application/json
-Authorization: Token 33f43b44b2b68282354bbc07528c5ddda58d726d
+Authorization: Token 7f9ed29811ffc2b91b01bb7f036653d6cbdca81b
 
 {
   "content": "Hello World ",
@@ -96,4 +96,14 @@ GET http://localhost:8000/filters/hashtags/search/
 
 
 
+####
+POST http://localhost:8000/private_message/conver_list/
+Content-Type: application/json
+Authorization: Token 7f9ed29811ffc2b91b01bb7f036653d6cbdca81b
 
+
+{
+    "sender": 2,
+    "recipient": 2,
+    "content": "99999"
+}
