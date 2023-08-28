@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'likes',
     'django_filters',
     'comments',
+    'private_message',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
