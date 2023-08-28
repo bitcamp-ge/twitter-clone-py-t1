@@ -13,7 +13,7 @@ Twitter clone project.
 0. Install Python dependencies: `pip install -r requirements.txt`
 0. Make Django migration: `python manage.py makemigrations`
 0. Run Django migrations: `python manage.py migrate`
-1. Install Django filters `pip install django-filter`
+
 0. Load initial database: `python manage.py loaddata initial_data.json`
 0. Start the Django server: `python manage.py runserver localhost:8000`
 
