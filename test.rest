@@ -47,11 +47,11 @@ GET http://localhost:8000/posts/
 ### შეჰტეგის გარეშეც მუშაობს
 POST http://localhost:8000/posts/ 
 Content-Type: application/json
-Authorization: Token 33f43b44b2b68282354bbc07528c5ddda58d726d
+Authorization: Token 0531e60ed0515682995b11e7e0178de2299fa616
 
 {
-  "content": "Hello World ",
-  "hashtags": ["programers", "Java"]
+  "content": "Hello Bitcamp #Python #World"
+
 }
 
 
