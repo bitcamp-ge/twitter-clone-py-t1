@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from .models import Post
 from .serializers import PostSerializer
 from hashtags.models import Hashtag
-# from rest_framework.authentication import TokenAuthentication
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from . permissions import IsOwnerOrReadOnly
 import re
@@ -11,7 +11,7 @@ import re
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    # authentication_classes = [TokenAuthentication]
+    authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 
