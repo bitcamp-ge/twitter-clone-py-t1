@@ -1,11 +1,11 @@
-PUT http://localhost:8000/group/14/
+DELETE  http://localhost:8000/group/7/
 Content-Type: application/json
-Authorization: Token c746632883ab7c54fc246e184eaf15700e1db228
+Authorization: Token ede5b2ce43ec95a90092f30e3c1884a9097ec0e3
 
 
 {
-    "id": 2,
-    "name": "Group 111 updated",
+    "id": 4,
+    "name": "Group 1 updated",
     "description": "test",
     "users": [
         2, 1
