@@ -1,0 +1,16 @@
+DELETE  http://localhost:8000/group/7/
+Content-Type: application/json
+Authorization: Token ede5b2ce43ec95a90092f30e3c1884a9097ec0e3
+
+
+{
+    "id": 4,
+    "name": "Group 1 updated",
+    "description": "test",
+    "users": [
+        2, 1
+    ],
+    "admins": [
+        1
+    ]
+}
